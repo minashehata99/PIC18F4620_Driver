@@ -1,0 +1,988 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"80 MCAL_LAYER/I2C/hal_i2c.h
+[; ;MCAL_LAYER/I2C/hal_i2c.h: 80: typedef struct{
+[s S274 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S274 . i2c_mode_cfg i2c_slave_address i2c_mode i2c_slew_rate i2c_SMBus_control i2c_general_call i2c_master_rec_mode i2c_reserved ]
+"95
+[; ;MCAL_LAYER/I2C/hal_i2c.h: 95: typedef struct{
+[s S275 `uc 1 `S274 1 ]
+[n S275 . i2c_clock i2c_cfg ]
+"4737 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\../proc/pic18f4620.h
+[s S193 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S193 . SSPM CKP SSPEN SSPOV WCOL ]
+"4744
+[s S194 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S194 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"4736
+[u S192 `S193 1 `S194 1 ]
+[n S192 . . . ]
+"4751
+[v _SSPCON1bits `VS192 ~T0 @X0 0 e@4038 ]
+[v F3078 `(v ~T0 @X0 1 tf1`*CS275 ]
+"20 MCAL_LAYER/I2C/hal_i2c.c
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 20: static __attribute__((inline)) void I2C_Master_Mode_Clock_configuration(const mssp_i2c_t *i2c_obj);
+[v _I2C_Master_Mode_Clock_configuration `TF3078 ~T0 @X0 0 s ]
+"4675 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\../proc/pic18f4620.h
+[s S191 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S191 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
+"4674
+[u S190 `S191 1 ]
+[n S190 . . ]
+"4686
+[v _SSPCON2bits `VS190 ~T0 @X0 0 e@4037 ]
+"5022
+[v _SSPADD `Vuc ~T0 @X0 0 e@4040 ]
+"1835
+[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S73 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1845
+[s S74 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S74 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"1834
+[u S72 `S73 1 `S74 1 ]
+[n S72 . . . ]
+"1856
+[v _TRISCbits `VS72 ~T0 @X0 0 e@3988 ]
+"4807
+[s S196 :2 `uc 1 :1 `uc 1 ]
+[n S196 . . R_NOT_W ]
+"4811
+[s S197 :5 `uc 1 :1 `uc 1 ]
+[n S197 . . D_NOT_A ]
+"4815
+[s S198 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S198 . BF UA R_nW S P D_nA CKE SMP ]
+"4825
+[s S199 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S199 . . R . D ]
+"4831
+[s S200 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S200 . . W . A ]
+"4837
+[s S201 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S201 . . nW . nA ]
+"4843
+[s S202 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S202 . . R_W . D_A ]
+"4849
+[s S203 :2 `uc 1 :1 `uc 1 ]
+[n S203 . . NOT_WRITE ]
+"4853
+[s S204 :5 `uc 1 :1 `uc 1 ]
+[n S204 . . NOT_ADDRESS ]
+"4857
+[s S205 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S205 . . nWRITE . nADDRESS ]
+"4863
+[s S206 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S206 . . RW START STOP DA ]
+"4870
+[s S207 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S207 . . NOT_W . NOT_A ]
+"4806
+[u S195 `S196 1 `S197 1 `S198 1 `S199 1 `S200 1 `S201 1 `S202 1 `S203 1 `S204 1 `S205 1 `S206 1 `S207 1 ]
+[n S195 . . . . . . . . . . . . . ]
+"4877
+[v _SSPSTATbits `VS195 ~T0 @X0 0 e@4039 ]
+"2580
+[s S97 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S97 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
+"2590
+[s S98 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S98 . . TX1IF RC1IF ]
+"2579
+[u S96 `S97 1 `S98 1 ]
+[n S96 . . . ]
+"2596
+[v _PIR1bits `VS96 ~T0 @X0 0 e@3998 ]
+"5029
+[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
+"54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\../proc/pic18f4620.h
+[; <" PORTA equ 0F80h ;# ">
+"191
+[; <" PORTB equ 0F81h ;# ">
+"362
+[; <" PORTC equ 0F82h ;# ">
+"537
+[; <" PORTD equ 0F83h ;# ">
+"679
+[; <" PORTE equ 0F84h ;# ">
+"882
+[; <" LATA equ 0F89h ;# ">
+"994
+[; <" LATB equ 0F8Ah ;# ">
+"1106
+[; <" LATC equ 0F8Bh ;# ">
+"1218
+[; <" LATD equ 0F8Ch ;# ">
+"1330
+[; <" LATE equ 0F8Dh ;# ">
+"1382
+[; <" TRISA equ 0F92h ;# ">
+"1387
+[; <" DDRA equ 0F92h ;# ">
+"1604
+[; <" TRISB equ 0F93h ;# ">
+"1609
+[; <" DDRB equ 0F93h ;# ">
+"1826
+[; <" TRISC equ 0F94h ;# ">
+"1831
+[; <" DDRC equ 0F94h ;# ">
+"2048
+[; <" TRISD equ 0F95h ;# ">
+"2053
+[; <" DDRD equ 0F95h ;# ">
+"2270
+[; <" TRISE equ 0F96h ;# ">
+"2275
+[; <" DDRE equ 0F96h ;# ">
+"2434
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"2499
+[; <" PIE1 equ 0F9Dh ;# ">
+"2576
+[; <" PIR1 equ 0F9Eh ;# ">
+"2653
+[; <" IPR1 equ 0F9Fh ;# ">
+"2730
+[; <" PIE2 equ 0FA0h ;# ">
+"2796
+[; <" PIR2 equ 0FA1h ;# ">
+"2862
+[; <" IPR2 equ 0FA2h ;# ">
+"2928
+[; <" EECON1 equ 0FA6h ;# ">
+"2994
+[; <" EECON2 equ 0FA7h ;# ">
+"3001
+[; <" EEDATA equ 0FA8h ;# ">
+"3008
+[; <" EEADR equ 0FA9h ;# ">
+"3015
+[; <" EEADRH equ 0FAAh ;# ">
+"3022
+[; <" RCSTA equ 0FABh ;# ">
+"3027
+[; <" RCSTA1 equ 0FABh ;# ">
+"3232
+[; <" TXSTA equ 0FACh ;# ">
+"3237
+[; <" TXSTA1 equ 0FACh ;# ">
+"3488
+[; <" TXREG equ 0FADh ;# ">
+"3493
+[; <" TXREG1 equ 0FADh ;# ">
+"3500
+[; <" RCREG equ 0FAEh ;# ">
+"3505
+[; <" RCREG1 equ 0FAEh ;# ">
+"3512
+[; <" SPBRG equ 0FAFh ;# ">
+"3517
+[; <" SPBRG1 equ 0FAFh ;# ">
+"3524
+[; <" SPBRGH equ 0FB0h ;# ">
+"3531
+[; <" T3CON equ 0FB1h ;# ">
+"3643
+[; <" TMR3 equ 0FB2h ;# ">
+"3650
+[; <" TMR3L equ 0FB2h ;# ">
+"3657
+[; <" TMR3H equ 0FB3h ;# ">
+"3664
+[; <" CMCON equ 0FB4h ;# ">
+"3754
+[; <" CVRCON equ 0FB5h ;# ">
+"3833
+[; <" ECCP1AS equ 0FB6h ;# ">
+"3915
+[; <" PWM1CON equ 0FB7h ;# ">
+"3985
+[; <" BAUDCON equ 0FB8h ;# ">
+"3990
+[; <" BAUDCTL equ 0FB8h ;# ">
+"4157
+[; <" CCP2CON equ 0FBAh ;# ">
+"4236
+[; <" CCPR2 equ 0FBBh ;# ">
+"4243
+[; <" CCPR2L equ 0FBBh ;# ">
+"4250
+[; <" CCPR2H equ 0FBCh ;# ">
+"4257
+[; <" CCP1CON equ 0FBDh ;# ">
+"4354
+[; <" CCPR1 equ 0FBEh ;# ">
+"4361
+[; <" CCPR1L equ 0FBEh ;# ">
+"4368
+[; <" CCPR1H equ 0FBFh ;# ">
+"4375
+[; <" ADCON2 equ 0FC0h ;# ">
+"4446
+[; <" ADCON1 equ 0FC1h ;# ">
+"4531
+[; <" ADCON0 equ 0FC2h ;# ">
+"4650
+[; <" ADRES equ 0FC3h ;# ">
+"4657
+[; <" ADRESL equ 0FC3h ;# ">
+"4664
+[; <" ADRESH equ 0FC4h ;# ">
+"4671
+[; <" SSPCON2 equ 0FC5h ;# ">
+"4733
+[; <" SSPCON1 equ 0FC6h ;# ">
+"4803
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5024
+[; <" SSPADD equ 0FC8h ;# ">
+"5031
+[; <" SSPBUF equ 0FC9h ;# ">
+"5038
+[; <" T2CON equ 0FCAh ;# ">
+"5109
+[; <" PR2 equ 0FCBh ;# ">
+"5114
+[; <" MEMCON equ 0FCBh ;# ">
+"5219
+[; <" TMR2 equ 0FCCh ;# ">
+"5226
+[; <" T1CON equ 0FCDh ;# ">
+"5329
+[; <" TMR1 equ 0FCEh ;# ">
+"5336
+[; <" TMR1L equ 0FCEh ;# ">
+"5343
+[; <" TMR1H equ 0FCFh ;# ">
+"5350
+[; <" RCON equ 0FD0h ;# ">
+"5483
+[; <" WDTCON equ 0FD1h ;# ">
+"5511
+[; <" HLVDCON equ 0FD2h ;# ">
+"5516
+[; <" LVDCON equ 0FD2h ;# ">
+"5781
+[; <" OSCCON equ 0FD3h ;# ">
+"5858
+[; <" T0CON equ 0FD5h ;# ">
+"5935
+[; <" TMR0 equ 0FD6h ;# ">
+"5942
+[; <" TMR0L equ 0FD6h ;# ">
+"5949
+[; <" TMR0H equ 0FD7h ;# ">
+"5956
+[; <" STATUS equ 0FD8h ;# ">
+"6027
+[; <" FSR2 equ 0FD9h ;# ">
+"6034
+[; <" FSR2L equ 0FD9h ;# ">
+"6041
+[; <" FSR2H equ 0FDAh ;# ">
+"6048
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6055
+[; <" PREINC2 equ 0FDCh ;# ">
+"6062
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6069
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6076
+[; <" INDF2 equ 0FDFh ;# ">
+"6083
+[; <" BSR equ 0FE0h ;# ">
+"6090
+[; <" FSR1 equ 0FE1h ;# ">
+"6097
+[; <" FSR1L equ 0FE1h ;# ">
+"6104
+[; <" FSR1H equ 0FE2h ;# ">
+"6111
+[; <" PLUSW1 equ 0FE3h ;# ">
+"6118
+[; <" PREINC1 equ 0FE4h ;# ">
+"6125
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"6132
+[; <" POSTINC1 equ 0FE6h ;# ">
+"6139
+[; <" INDF1 equ 0FE7h ;# ">
+"6146
+[; <" WREG equ 0FE8h ;# ">
+"6158
+[; <" FSR0 equ 0FE9h ;# ">
+"6165
+[; <" FSR0L equ 0FE9h ;# ">
+"6172
+[; <" FSR0H equ 0FEAh ;# ">
+"6179
+[; <" PLUSW0 equ 0FEBh ;# ">
+"6186
+[; <" PREINC0 equ 0FECh ;# ">
+"6193
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"6200
+[; <" POSTINC0 equ 0FEEh ;# ">
+"6207
+[; <" INDF0 equ 0FEFh ;# ">
+"6214
+[; <" INTCON3 equ 0FF0h ;# ">
+"6306
+[; <" INTCON2 equ 0FF1h ;# ">
+"6376
+[; <" INTCON equ 0FF2h ;# ">
+"6493
+[; <" PROD equ 0FF3h ;# ">
+"6500
+[; <" PRODL equ 0FF3h ;# ">
+"6507
+[; <" PRODH equ 0FF4h ;# ">
+"6514
+[; <" TABLAT equ 0FF5h ;# ">
+"6523
+[; <" TBLPTR equ 0FF6h ;# ">
+"6530
+[; <" TBLPTRL equ 0FF6h ;# ">
+"6537
+[; <" TBLPTRH equ 0FF7h ;# ">
+"6544
+[; <" TBLPTRU equ 0FF8h ;# ">
+"6553
+[; <" PCLAT equ 0FF9h ;# ">
+"6560
+[; <" PC equ 0FF9h ;# ">
+"6567
+[; <" PCL equ 0FF9h ;# ">
+"6574
+[; <" PCLATH equ 0FFAh ;# ">
+"6581
+[; <" PCLATU equ 0FFBh ;# ">
+"6588
+[; <" STKPTR equ 0FFCh ;# ">
+"6694
+[; <" TOS equ 0FFDh ;# ">
+"6701
+[; <" TOSL equ 0FFDh ;# ">
+"6708
+[; <" TOSH equ 0FFEh ;# ">
+"6715
+[; <" TOSU equ 0FFFh ;# ">
+"22 MCAL_LAYER/I2C/hal_i2c.c
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 22: Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj){
+[v _MSSP_I2C_Init `(uc ~T0 @X0 1 ef1`*CS275 ]
+{
+[e :U _MSSP_I2C_Init ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[f ]
+"23
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 23:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"24
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 24:     if(((void*)0) == i2c_obj){
+[e $ ! == -> -> -> 0 `i `*v `*CS275 _i2c_obj 277  ]
+{
+"25
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 25:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"26
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 26:     }
+}
+[e $U 278  ]
+"27
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 27:     else{
+[e :U 277 ]
+{
+"28
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 28:         (SSPCON1bits.SSPEN = 0);
+[e = . . _SSPCON1bits 0 2 -> -> 0 `i `uc ]
+"30
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 30:         if(1 == i2c_obj->i2c_cfg.i2c_mode){
+[e $ ! == -> 1 `i -> . . *U _i2c_obj 1 2 `i 279  ]
+{
+"31
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 31:             I2C_Master_Mode_Clock_configuration(i2c_obj);
+[e ( _I2C_Master_Mode_Clock_configuration (1 _i2c_obj ]
+"32
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 32:         }
+}
+[e $U 280  ]
+"33
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 33:         else if(0 == i2c_obj->i2c_cfg.i2c_mode){
+[e :U 279 ]
+[e $ ! == -> 0 `i -> . . *U _i2c_obj 1 2 `i 281  ]
+{
+"34
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 34:             if(1 == i2c_obj->i2c_cfg.i2c_general_call){
+[e $ ! == -> 1 `i -> . . *U _i2c_obj 1 5 `i 282  ]
+{
+"35
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 35:                 (SSPCON2bits.GCEN = 1);
+[e = . . _SSPCON2bits 0 7 -> -> 1 `i `uc ]
+"36
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 36:             }
+}
+[e $U 283  ]
+"37
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 37:             else if(0 == i2c_obj->i2c_cfg.i2c_general_call){
+[e :U 282 ]
+[e $ ! == -> 0 `i -> . . *U _i2c_obj 1 5 `i 284  ]
+{
+"38
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 38:                 (SSPCON2bits.GCEN = 0);
+[e = . . _SSPCON2bits 0 7 -> -> 0 `i `uc ]
+"39
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 39:             }
+}
+[e $U 285  ]
+"40
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 40:             else{ }
+[e :U 284 ]
+{
+}
+[e :U 285 ]
+[e :U 283 ]
+"41
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 41:             SSPCON1bits.WCOL = 0;
+[e = . . _SSPCON1bits 0 4 -> -> 0 `i `uc ]
+"42
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 42:             SSPCON1bits.SSPOV = 0;
+[e = . . _SSPCON1bits 0 3 -> -> 0 `i `uc ]
+"43
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 43:             SSPCON1bits.CKP = 1;
+[e = . . _SSPCON1bits 0 1 -> -> 1 `i `uc ]
+"44
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 44:             SSPADD = i2c_obj->i2c_cfg.i2c_slave_address;
+[e = _SSPADD . . *U _i2c_obj 1 1 ]
+"45
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 45:             SSPCON1bits.SSPM = i2c_obj->i2c_cfg.i2c_mode_cfg;
+[e = . . _SSPCON1bits 0 0 . . *U _i2c_obj 1 0 ]
+"46
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 46:         }
+}
+[e $U 286  ]
+"47
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 47:         else{ }
+[e :U 281 ]
+{
+}
+[e :U 286 ]
+[e :U 280 ]
+"49
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 49:         TRISCbits.TRISC3 = 1;
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+"50
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 50:         TRISCbits.TRISC4 = 1;
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+"52
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 52:         if(0 == i2c_obj->i2c_cfg.i2c_slew_rate){
+[e $ ! == -> 0 `i -> . . *U _i2c_obj 1 3 `i 287  ]
+{
+"53
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 53:                 (SSPSTATbits.SMP = 0);
+[e = . . _SSPSTATbits 2 7 -> -> 0 `i `uc ]
+"54
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 54:             }
+}
+[e $U 288  ]
+"55
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 55:             else if(1 == i2c_obj->i2c_cfg.i2c_slew_rate){
+[e :U 287 ]
+[e $ ! == -> 1 `i -> . . *U _i2c_obj 1 3 `i 289  ]
+{
+"56
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 56:                 (SSPSTATbits.SMP = 1);
+[e = . . _SSPSTATbits 2 7 -> -> 1 `i `uc ]
+"57
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 57:             }
+}
+[e $U 290  ]
+"58
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 58:             else{ }
+[e :U 289 ]
+{
+}
+[e :U 290 ]
+[e :U 288 ]
+"61
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 61:         if(0 == i2c_obj->i2c_cfg.i2c_SMBus_control){
+[e $ ! == -> 0 `i -> . . *U _i2c_obj 1 4 `i 291  ]
+{
+"62
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 62:                 (SSPSTATbits.CKE = 1);
+[e = . . _SSPSTATbits 2 6 -> -> 1 `i `uc ]
+"63
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 63:             }
+}
+[e $U 292  ]
+"64
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 64:             else if(0 == i2c_obj->i2c_cfg.i2c_SMBus_control){
+[e :U 291 ]
+[e $ ! == -> 0 `i -> . . *U _i2c_obj 1 4 `i 293  ]
+{
+"65
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 65:                 (SSPSTATbits.CKE = 0);
+[e = . . _SSPSTATbits 2 6 -> -> 0 `i `uc ]
+"66
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 66:             }
+}
+[e $U 294  ]
+"67
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 67:             else{ }
+[e :U 293 ]
+{
+}
+[e :U 294 ]
+[e :U 292 ]
+"105
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 105:         (SSPCON1bits.SSPEN = 1);
+[e = . . _SSPCON1bits 0 2 -> -> 1 `i `uc ]
+"106
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 106:     }
+}
+[e :U 278 ]
+"107
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 107:     return ret;
+[e ) _ret ]
+[e $UE 276  ]
+"108
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 108: }
+[e :UE 276 ]
+}
+"114
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 114: Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_t *i2c_obj){
+[v _MSSP_I2C_DeInit `(uc ~T0 @X0 1 ef1`*CS275 ]
+{
+[e :U _MSSP_I2C_DeInit ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[f ]
+"115
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 115:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"116
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 116:     if(((void*)0) == i2c_obj){
+[e $ ! == -> -> -> 0 `i `*v `*CS275 _i2c_obj 296  ]
+{
+"117
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 117:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"118
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 118:     }
+}
+[e $U 297  ]
+"119
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 119:     else{
+[e :U 296 ]
+{
+"120
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 120:         (SSPCON1bits.SSPEN = 0);
+[e = . . _SSPCON1bits 0 2 -> -> 0 `i `uc ]
+"125
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 125:     }
+}
+[e :U 297 ]
+"126
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 126:     return ret;
+[e ) _ret ]
+[e $UE 295  ]
+"127
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 127: }
+[e :UE 295 ]
+}
+"133
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 133: Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_t *i2c_obj){
+[v _MSSP_I2C_Master_Send_Start `(uc ~T0 @X0 1 ef1`*CS275 ]
+{
+[e :U _MSSP_I2C_Master_Send_Start ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[f ]
+"134
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 134:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"135
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 135:     if(((void*)0) == i2c_obj){
+[e $ ! == -> -> -> 0 `i `*v `*CS275 _i2c_obj 299  ]
+{
+"136
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 136:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"137
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 137:     }
+}
+[e $U 300  ]
+"138
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 138:     else{
+[e :U 299 ]
+{
+"139
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 139:         SSPCON2bits.SEN = 1;
+[e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
+"140
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 140:         while(SSPCON2bits.SEN);
+[e $U 301  ]
+[e :U 302 ]
+[e :U 301 ]
+[e $ != -> . . _SSPCON2bits 0 0 `i -> 0 `i 302  ]
+[e :U 303 ]
+"141
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 141:         PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"142
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 142:         if(1 == SSPSTATbits.S){
+[e $ ! == -> 1 `i -> . . _SSPSTATbits 2 3 `i 304  ]
+{
+"143
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 143:             ret =(Std_ReturnType)0x01;
+[e = _ret -> -> 1 `i `uc ]
+"144
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 144:         }
+}
+[e $U 305  ]
+"145
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 145:         else{
+[e :U 304 ]
+{
+"146
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 146:             ret =(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"147
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 147:         }
+}
+[e :U 305 ]
+"148
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 148:     }
+}
+[e :U 300 ]
+"149
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 149:     return ret;
+[e ) _ret ]
+[e $UE 298  ]
+"150
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 150: }
+[e :UE 298 ]
+}
+"156
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 156: Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_t *i2c_obj){
+[v _MSSP_I2C_Master_Send_Repeated_Start `(uc ~T0 @X0 1 ef1`*CS275 ]
+{
+[e :U _MSSP_I2C_Master_Send_Repeated_Start ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[f ]
+"157
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 157:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"158
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 158:     if(((void*)0) == i2c_obj){
+[e $ ! == -> -> -> 0 `i `*v `*CS275 _i2c_obj 307  ]
+{
+"159
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 159:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"160
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 160:     }
+}
+[e $U 308  ]
+"161
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 161:     else{
+[e :U 307 ]
+{
+"162
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 162:         SSPCON2bits.RSEN = 1;
+[e = . . _SSPCON2bits 0 1 -> -> 1 `i `uc ]
+"163
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 163:         while(SSPCON2bits.RSEN);
+[e $U 309  ]
+[e :U 310 ]
+[e :U 309 ]
+[e $ != -> . . _SSPCON2bits 0 1 `i -> 0 `i 310  ]
+[e :U 311 ]
+"164
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 164:         PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"165
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 165:     }
+}
+[e :U 308 ]
+"166
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 166:     return ret;
+[e ) _ret ]
+[e $UE 306  ]
+"167
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 167: }
+[e :UE 306 ]
+}
+"173
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 173: Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_t *i2c_obj){
+[v _MSSP_I2C_Master_Send_Stop `(uc ~T0 @X0 1 ef1`*CS275 ]
+{
+[e :U _MSSP_I2C_Master_Send_Stop ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[f ]
+"174
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 174:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"175
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 175:     if(((void*)0) == i2c_obj){
+[e $ ! == -> -> -> 0 `i `*v `*CS275 _i2c_obj 313  ]
+{
+"176
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 176:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"177
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 177:     }
+}
+[e $U 314  ]
+"178
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 178:     else{
+[e :U 313 ]
+{
+"179
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 179:         SSPCON2bits.PEN = 1;
+[e = . . _SSPCON2bits 0 2 -> -> 1 `i `uc ]
+"180
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 180:         while(SSPCON2bits.PEN);
+[e $U 315  ]
+[e :U 316 ]
+[e :U 315 ]
+[e $ != -> . . _SSPCON2bits 0 2 `i -> 0 `i 316  ]
+[e :U 317 ]
+"181
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 181:         PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"182
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 182:         if(1 == SSPSTATbits.P){
+[e $ ! == -> 1 `i -> . . _SSPSTATbits 2 4 `i 318  ]
+{
+"183
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 183:             ret =(Std_ReturnType)0x01;
+[e = _ret -> -> 1 `i `uc ]
+"184
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 184:         }
+}
+[e $U 319  ]
+"185
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 185:         else{
+[e :U 318 ]
+{
+"186
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 186:             ret =(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"187
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 187:         }
+}
+[e :U 319 ]
+"188
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 188:     }
+}
+[e :U 314 ]
+"189
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 189:     return ret;
+[e ) _ret ]
+[e $UE 312  ]
+"190
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 190: }
+[e :UE 312 ]
+}
+"197
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 197: Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack){
+[v _MSSP_I2C_Master_Write_Blocking `(uc ~T0 @X0 1 ef3`*CS275`uc`*uc ]
+{
+[e :U _MSSP_I2C_Master_Write_Blocking ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[v _i2c_data `uc ~T0 @X0 1 r2 ]
+[v __ack `*uc ~T0 @X0 1 r3 ]
+[f ]
+"198
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 198:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"199
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 199:     if((((void*)0) == i2c_obj) || (((void*)0) == _ack)){
+[e $ ! || == -> -> -> 0 `i `*v `*CS275 _i2c_obj == -> -> -> 0 `i `*v `*uc __ack 321  ]
+{
+"200
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 200:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"201
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 201:     }
+}
+[e $U 322  ]
+"202
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 202:     else{
+[e :U 321 ]
+{
+"203
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 203:         (SSPCON2bits.RCEN = 1);
+[e = . . _SSPCON2bits 0 3 -> -> 1 `i `uc ]
+"204
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 204:         SSPBUF = i2c_data;
+[e = _SSPBUF _i2c_data ]
+"205
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 205:         while(!PIR1bits.SSPIF);
+[e $U 323  ]
+[e :U 324 ]
+[e :U 323 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 324  ]
+[e :U 325 ]
+"206
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 206:         PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"207
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 207:         if(0 == SSPCON2bits.ACKSTAT){
+[e $ ! == -> 0 `i -> . . _SSPCON2bits 0 6 `i 326  ]
+{
+"208
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 208:             *_ack = 0;
+[e = *U __ack -> -> 0 `i `uc ]
+"209
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 209:         }
+}
+[e $U 327  ]
+"210
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 210:         else{
+[e :U 326 ]
+{
+"211
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 211:             *_ack = 1;
+[e = *U __ack -> -> 1 `i `uc ]
+"212
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 212:         }
+}
+[e :U 327 ]
+"213
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 213:     }
+}
+[e :U 322 ]
+"214
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 214:     return ret;
+[e ) _ret ]
+[e $UE 320  ]
+"215
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 215: }
+[e :UE 320 ]
+}
+"223
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 223: Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_t *i2c_obj, uint8 ack, uint8 *i2c_data){
+[v _MSSP_I2C_Master_Read_Blocking `(uc ~T0 @X0 1 ef3`*CS275`uc`*uc ]
+{
+[e :U _MSSP_I2C_Master_Read_Blocking ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[v _ack `uc ~T0 @X0 1 r2 ]
+[v _i2c_data `*uc ~T0 @X0 1 r3 ]
+[f ]
+"224
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 224:     Std_ReturnType ret =(Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"225
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 225:     if((((void*)0) == i2c_data) || (((void*)0) == i2c_obj)){
+[e $ ! || == -> -> -> 0 `i `*v `*uc _i2c_data == -> -> -> 0 `i `*v `*CS275 _i2c_obj 329  ]
+{
+"226
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 226:         ret=(Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"227
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 227:     }
+}
+[e $U 330  ]
+"228
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 228:     else{
+[e :U 329 ]
+{
+"229
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 229:         *i2c_data = SSPBUF;
+[e = *U _i2c_data _SSPBUF ]
+"230
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 230:         if(0 == ack){
+[e $ ! == -> 0 `i -> _ack `i 331  ]
+{
+"231
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 231:             SSPCON2bits.ACKDT = 0;
+[e = . . _SSPCON2bits 0 5 -> -> 0 `i `uc ]
+"232
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 232:             SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
+"233
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 233:         }
+}
+[e $U 332  ]
+"234
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 234:         else if(1 == ack){
+[e :U 331 ]
+[e $ ! == -> 1 `i -> _ack `i 333  ]
+{
+"235
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 235:             SSPCON2bits.ACKDT = 1;
+[e = . . _SSPCON2bits 0 5 -> -> 1 `i `uc ]
+"236
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 236:             SSPCON2bits.ACKEN = 1;
+[e = . . _SSPCON2bits 0 4 -> -> 1 `i `uc ]
+"237
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 237:         }
+}
+[e $U 334  ]
+"238
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 238:         else{ }
+[e :U 333 ]
+{
+}
+[e :U 334 ]
+[e :U 332 ]
+"239
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 239:     }
+}
+[e :U 330 ]
+"240
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 240:     return ret;
+[e ) _ret ]
+[e $UE 328  ]
+"241
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 241: }
+[e :UE 328 ]
+}
+[v F3106 `(v ~T0 @X0 1 tf1`*CS275 ]
+"243
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 243: static __attribute__((inline)) void I2C_Master_Mode_Clock_configuration(const mssp_i2c_t *i2c_obj){
+[v _I2C_Master_Mode_Clock_configuration `TF3106 ~T0 @X0 1 s ]
+{
+[e :U _I2C_Master_Mode_Clock_configuration ]
+[v _i2c_obj `*CS275 ~T0 @X0 1 r1 ]
+[f ]
+"244
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 244:     SSPCON1bits.SSPM = 0x08U;
+[e = . . _SSPCON1bits 0 0 -> -> 8 `ui `uc ]
+"245
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 245:     SSPADD = (uint8)(((8000000UL / 4.0)/ i2c_obj->i2c_clock) - 1);
+[e = _SSPADD -> - / / -> -> 8000000 `ul `d .4.0 -> -> . *U _i2c_obj 0 `i `d -> -> 1 `i `d `uc ]
+"246
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 246: }
+[e :UE 335 ]
+}
+"248
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 248: void MSSP_I2C_ISR (void){
+[v _MSSP_I2C_ISR `(v ~T0 @X0 1 ef ]
+{
+[e :U _MSSP_I2C_ISR ]
+[f ]
+"256
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 256: }
+[e :UE 336 ]
+}
+"258
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 258: void MSSP_I2C_BCL_ISR (void){
+[v _MSSP_I2C_BCL_ISR `(v ~T0 @X0 1 ef ]
+{
+[e :U _MSSP_I2C_BCL_ISR ]
+[f ]
+"266
+[; ;MCAL_LAYER/I2C/hal_i2c.c: 266: }
+[e :UE 337 ]
+}
